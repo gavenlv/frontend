@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 // import { getCartItems, updateCartItemQuantity, removeCartItem } from '../services/cartService'; // Mock API
 
@@ -73,7 +73,7 @@ const ShoppingCartPage: React.FC = () => {
         prevItems.map(item => item.id === itemId ? { ...item, quantity: newQuantity } : item)
       );
       console.log(`Mock: Updated quantity for item ${itemId} to ${newQuantity}`);
-    } catch (err) {
+    } catch {
       setError('Failed to update item quantity.');
     } finally {
       setLoading(false);
@@ -87,7 +87,7 @@ const ShoppingCartPage: React.FC = () => {
       // await removeCartItem(itemId);
       setCartItems(prevItems => prevItems.filter(item => item.id !== itemId));
       console.log(`Mock: Removed item ${itemId} from cart`);
-    } catch (err) {
+    } catch {
       setError('Failed to remove item from cart.');
     } finally {
       setLoading(false);
